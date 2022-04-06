@@ -17,7 +17,7 @@ flatpak \
 polkit-gnome \
 wofi \
 NetworkManager-tui \
-powertop \
+tlp \
 java-latest-openjdk-devel \
 micro \
 bash-completion
