@@ -1,0 +1,19 @@
+#   Autor: Pedro Igor Martins dos Reis
+#   Data: 29/12/2021
+#   Local: ~/.config/xsettingsd/xsettingsd.conf
+#   Arquivo: ".xsettingsd" - Arquivo de configuração para o Xsettingsd (Xwayland)
+
+Xft/Hinting 1
+Xft/RGBA "rgb"
+Xft/Antialias 1
+Xft/HintStyle "hintslight"
+
+Net/ThemeName "Arc-Darker"
+
+Gtk/MenuImages 0
+Gtk/ButtonImages 0
+Gtk/CursorThemeSize 16
+Gtk/FontName "Fira Sans 10"
+Gtk/ThemeName "Arc-Darker"
+Gtk/IconThemeName "Papirus-Dark"
+Gtk/CursorThemeName "Breeze_Snow"

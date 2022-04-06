@@ -1,0 +1,70 @@
+#   Autor: Pedro Igor Martins dos Reis
+#   Data: 29/12/2021
+#   Local: ~/.config/dunst/dunstrc
+#   Arquivo: "dunstrc" - Arquivo de configuração para Dunst
+#   Referência: https://github.com/dunst-project/dunst/blob/master/dunstrc
+
+[global]
+scale = 0
+monitor = 0
+width = 350
+height = 300
+follow = none
+offset = 10x50
+origin = bottom-right
+notification_limit = 5
+
+progress_bar = true
+progress_bar_height = 10
+progress_bar_frame_width = 1
+progress_bar_min_width = 200
+progress_bar_max_width = 500
+
+padding = 8
+frame_width = 1
+transparency = 0
+indicate_hidden = no
+separator_height = 2
+text_icon_padding = 0
+horizontal_padding = 8
+separator_color = foreground
+
+frame_color = "#5294e2"
+
+show_indicators = false
+
+sort = yes
+markup = full
+line_height = 0
+alignment = left
+ellipsize = middle
+font = Fira Sans 10
+show_age_threshold = 60
+vertical_alignment = center
+
+min_icon_size = 0
+max_icon_size = 32
+icon_position = left
+icon_path = /usr/share/icons/Papirus-Dark/32x32/devices:/usr/share/icons/Papirus-Dark/32x32/actions:/usr/share/icons/Papirus-Dark/32x32/status
+
+history_length = 10
+sticky_history = yes
+
+browser = /usr/bin/xdg-open
+
+title = Dunst
+class = Dunst
+corner_radius = 0
+
+[urgency_low]
+        background = "#2f343f"
+        foreground = "#f5f6f8"
+        timeout = 5
+[urgency_normal]
+        background = "#2f343f"
+        foreground = "#f5f6f8"
+        timeout = 5
+[urgency_critical]
+        background = "#2f343f"
+        foreground = "#f5f6f8"
+        timeout = 5
