@@ -37,4 +37,5 @@ media.ffmpeg.vaapi.enabled
 full-screen-api.ignore-widgets
 ```
 
-![]()
+## Print
+![](https://raw.githubusercontent.com/pedroigorreis/sway/main/print.png)
