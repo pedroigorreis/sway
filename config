@@ -1,11 +1,18 @@
+set $ws1 "www"
+set $ws2 "ter"
+set $ws3 "dev"
+set $ws4 "exp"
+set $ws5 "msc"
+set $ws6 "fun"
+set $ws7 "doc"
 set $mod Mod4
-set $term alacritty
-set $menu wofi -S run -p Comandos -I -m -t alacritty -b -M fuzzy -i -L 8 -G
-set $dmenu wofi -S drun -p Aplicações -I -m -t alacritty -b -M fuzzy -i -L 8 -G
+set $term foot
+set $menu wofi -S run -p Comandos -I -m -t foot -b -M fuzzy -i -L 8 -G
+set $dmenu wofi -S drun -p Aplicações -I -m -t foot -b -M fuzzy -i -L 8 -G
 
-font Fira Code Semibold 10
+font Ubuntu Mono Bold 12
 
-output * bg ~/.backgrounds/wp.jpg fill
+output * bg ~/.backgrounds/wp.png fill
 
 bar
 {
@@ -22,7 +29,7 @@ bar
 		focused_workspace #5294e2 #5294e2 #f5f6f8
 		active_workspace #5294e2 #5294e2 #f5f6f8
 		inactive_workspace #353944 #353944 #fcf6f8
-		urgent_workspace #7e2424 #7e2424 #fcf6f8
+		urgent_workspace #8e2424 #7e2424 #fcf6f8
 		binding_mode #eeeff1 #eeeff1 #eeeff1
 	}
 }
@@ -51,16 +58,22 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
 
 input *
 {
@@ -77,11 +90,13 @@ input type:touchpad
 gaps inner 5
 gaps outer 5
 
-default_border pixel 0
-default_floating_border pixel 0
+default_border pixel 2
+default_floating_border pixel 2
 
 exec --no-startup-id dunst
 exec --no-startup-id xsettingsd
+exec --no-startup-id pipewire
+exec --no-startup-id pipewire-pulse
 exec --no-startup-id wlsunset -s 18:00 -S 08:00
 exec --no-startup-id /usr/libexec/xdg-desktop-portal-wlr
 exec --no-startup-id /usr/libexec/xdg-desktop-portal-gtk
@@ -108,9 +123,30 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-exec swayidle -w timeout 300 'swaylock -f -i ~/.backgrounds/wp.jpg' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -i ~/.backgrounds/wp.jpg'
+exec swayidle -w timeout 300 'swaylock -f -i ~/.backgrounds/wp.png' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -i ~/.backgrounds/wp.png'
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [app_id="firefox" title="Sobre o Mozilla Firefox"] floating enable
 for_window [app_id="firefox" title="Firefox - Indicador de compartilhamento"] floating enable
+
+
+assign [app_id="mpv"] → $ws6
+assign [app_id="geany"] → $ws3
+assign [app_id="zathura"] → $ws7
+
+assign [app_id="firefox"] → $ws1
+assign [class="Brave-browser"] → $ws1
+
+assign [app_id="pcmanfm"] → $ws4
+assign [app_id="foot"] → $ws2
+assign [app_id="pavucontrol"] → $ws5
+assign [class="processing-app-Base"] → $ws3
+
+client.focused          #5294e2 #5294e2 #5294e2 #5294e2   #5294e2
+client.focused_inactive #2f343f #2f343f #2f343f #2f343f   #2f343f
+client.unfocused        #2f343f #2f343f #2f343f #2f343f   #2f343f
+client.urgent           #7e2424 #7e2424 #7e2424 #7e2424   #7e2424
+client.placeholder      #2f343f #2f343f #2f343f #2f343f   #2f343f
+
+client.background       #2f343f
