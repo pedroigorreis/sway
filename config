@@ -7,12 +7,13 @@ set $ws6 "fun"
 set $ws7 "doc"
 set $mod Mod4
 set $term foot
+set $background ~/Imagens/.backgrounds/wp.jpg
 set $menu wofi -S run -p Comandos -I -m -t foot -b -M fuzzy -i -L 8 -G
 set $dmenu wofi -S drun -p Aplicações -I -m -t foot -b -M fuzzy -i -L 8 -G
 
-font Ubuntu Mono Bold 12
+font Fira Code Semibold 10
 
-output * bg ~/.backgrounds/wp.png fill
+output * bg $background fill
 
 bar
 {
@@ -58,7 +59,6 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Right move right
 
-
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -94,9 +94,6 @@ default_border pixel 2
 default_floating_border pixel 2
 
 exec --no-startup-id dunst
-exec --no-startup-id xsettingsd
-exec --no-startup-id pipewire
-exec --no-startup-id pipewire-pulse
 exec --no-startup-id wlsunset -s 18:00 -S 08:00
 exec --no-startup-id /usr/libexec/xdg-desktop-portal-wlr
 exec --no-startup-id /usr/libexec/xdg-desktop-portal-gtk
@@ -130,23 +127,35 @@ for_window [window_role="task_dialog"] floating enable
 for_window [app_id="firefox" title="Sobre o Mozilla Firefox"] floating enable
 for_window [app_id="firefox" title="Firefox - Indicador de compartilhamento"] floating enable
 
+# Web navigation
+assign [app_id="firefox"] → $ws1
+assign [app_id"brave-browser"] → $ws1
 
-assign [app_id="mpv"] → $ws6
+# Terminal
+assign [app_id="foot"] → $ws2
+
+# Development Tools
+assign [app_id="gitg"] → $ws3
+assign [class="MQTTX"] → $ws3
 assign [app_id="geany"] → $ws3
+assign [class="processing-app-Base"] → $ws3
+
+# File explorer
+assign [app_id="pcmanfm"] → $ws4
+
+# Music / Audio
+assign [app_id="pavucontrol"] → $ws5
+
+# Fun / Relax
+assign [app_id="mpv"] → $ws6
+
+# Documents
 assign [app_id="zathura"] → $ws7
 
-assign [app_id="firefox"] → $ws1
-assign [class="Brave-browser"] → $ws1
-
-assign [app_id="pcmanfm"] → $ws4
-assign [app_id="foot"] → $ws2
-assign [app_id="pavucontrol"] → $ws5
-assign [class="processing-app-Base"] → $ws3
 
 client.focused          #5294e2 #5294e2 #5294e2 #5294e2   #5294e2
 client.focused_inactive #2f343f #2f343f #2f343f #2f343f   #2f343f
 client.unfocused        #2f343f #2f343f #2f343f #2f343f   #2f343f
 client.urgent           #7e2424 #7e2424 #7e2424 #7e2424   #7e2424
 client.placeholder      #2f343f #2f343f #2f343f #2f343f   #2f343f
-
 client.background       #2f343f
