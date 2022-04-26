@@ -22,3 +22,6 @@ export XDG_CURRENT_DESKTOP=sway
 # Qt⁵
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_QPA_PLATFORM=wayland-egl
+
+# Vim
+export EDITOR=/usr/bin/vim
