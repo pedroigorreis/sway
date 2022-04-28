@@ -126,7 +126,6 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [app_id="firefox" title="Sobre o Mozilla Firefox"] floating enable
@@ -156,7 +155,6 @@ assign [app_id="mpv"] → $ws6
 
 # Documents
 assign [app_id="zathura"] → $ws7
-
 
 client.focused          #5294e2 #5294e2 #5294e2 #5294e2   #5294e2
 client.focused_inactive #2f343f #2f343f #2f343f #2f343f   #2f343f
