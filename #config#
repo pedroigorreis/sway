@@ -11,7 +11,6 @@ set $background ~/Imagens/.backgrounds/wp.jpg
 set $lock swaylock -f -i ~/Imagens/.backgrounds/wp.jpg
 set $menu wofi -S run -p Comandos -I -m -t foot -b -M fuzzy -i -L 8 -G
 set $dmenu wofi -S drun -p Aplicações -I -m -t foot -b -M fuzzy -i -L 8 -G
-set $idle swayidle -w timeout 300 'swaylock -f -i ~/Imagens/.backgrounds/wp.jpg' timeout 600 'swaymsg "output * dpms off" && loginctl suspend' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -i ~/Imagens/.backgrounds/wp.jpg'
 
 font Fira Code Semibold 10
 
@@ -97,7 +96,6 @@ gaps outer 5
 default_border pixel 2
 default_floating_border pixel 2
 
-exec --no-startup-id $idle
 exec --no-startup-id dunst
 exec --no-startup-id pipewire
 exec --no-startup-id footclient
@@ -159,7 +157,7 @@ assign [app_id="mpv"] → $ws6
 # Documents
 assign [app_id="zathura"] → $ws7
 
-client.focused          #515151 #515151 #515151 #515151   #515151
+client.focused          
 client.focused_inactive #535353 #535353 #535353 #535353   #535353
 client.unfocused        #535353 #535353 #535353 #535353   #535353
 client.urgent           #7e2424 #7e2424 #7e2424 #7e2424   #7e2424
